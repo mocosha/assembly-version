@@ -9,5 +9,5 @@ dotnet pack
 ```
 
 ```bash
-dotnet tool install --global --add-source ./nupkg aversion
+dotnet tool install --global --add-source ./nupkg aver
 ```
