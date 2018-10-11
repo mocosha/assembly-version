@@ -4,11 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
-    <AssemblyName>aversion</AssemblyName>
+    <AssemblyName>aver</AssemblyName>
     <Company>mocosha Inc.</Company>
 
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>aversion</ToolCommandName>
+    <ToolCommandName>aver</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
   <ItemGroup>
