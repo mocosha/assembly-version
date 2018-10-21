@@ -64,10 +64,9 @@ module Args =
         { AssemblyPath = results.GetResult Path
           AssemblyProperties = details }
 
-open System.Reflection
-open System.Diagnostics
-
 module Program =
+    open System.Reflection
+    open System.Diagnostics
 
     let readAssemblyInfo (options: Args.Options) =
         try
