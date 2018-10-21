@@ -64,17 +64,12 @@ module Args =
         { AssemblyPath = results.GetResult Path
           AssemblyProperties = details }
 
-open System
 open System.Reflection
 open System.Diagnostics
 
 module Program =
 
     let readAssemblyInfo (options: Args.Options) =
-        let logAndReturnError (ex: Exception) =
-            Debug.WriteLine (ex.ToString ())
-            Error ex.Message
-
         try
             let assembly = Assembly.LoadFrom (options.AssemblyPath)
             let versionInfo = FileVersionInfo.GetVersionInfo (assembly.Location)
@@ -91,16 +86,9 @@ module Program =
 
             Ok map
         with
-        | :? System.IO.FileNotFoundException as ex ->
-            logAndReturnError ex
-        | :? System.IO.FileLoadException as ex ->
-            logAndReturnError ex
-        | :? BadImageFormatException as ex ->
-            logAndReturnError ex
-        | :? System.Security.SecurityException as ex ->
-            logAndReturnError ex
-        | :? System.IO.PathTooLongException as ex ->
-            logAndReturnError ex
+        | ex ->
+            Debug.WriteLine (ex.ToString ())
+            Error ex.Message
 
     let printProperties =
         Map.iter (fun key value -> printfn "%s: %s" key value)
