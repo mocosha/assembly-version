@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>aver</AssemblyName>
+    <AssemblyTitle>aver</AssemblyTitle>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DebugType>portable</DebugType>
+    <OutputType>Exe</OutputType>
+    <Company>mocosha Inc.</Company>
+    <Version>1.0.0</Version>
+    <Authors>mocosha Inc.</Authors>
+    <Copyright>mocosha Inc.</Copyright>
+    <PackageProjectUrl>https://github.com/mocosha/assembly-version</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/mocosha/assembly-version/LICENSE.md</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/mocosha/assembly-version.git</RepositoryUrl>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>aver</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Argu" Version="5.1.0" />
+  </ItemGroup>
+</Project>

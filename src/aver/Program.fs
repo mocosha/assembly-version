@@ -1,4 +1,4 @@
-﻿namespace AssemblyVersion
+﻿namespace Aver
 
 module AssemblyProperties =
     let [<Literal>] FullName = "FullName"
