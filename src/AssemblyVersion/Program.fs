@@ -71,9 +71,9 @@ open System.Diagnostics
 module Program =
 
     let readAssemblyInfo (options: Args.Options) =
-        let logAndReturnError (ex: Exception) msg =
+        let logAndReturnError (ex: Exception) =
             Debug.WriteLine (ex.ToString ())
-            Error (Option.defaultValue ex.Message msg)
+            Error ex.Message
 
         try
             let assembly = Assembly.LoadFrom (options.AssemblyPath)
@@ -92,16 +92,15 @@ module Program =
             Ok map
         with
         | :? System.IO.FileNotFoundException as ex ->
-            logAndReturnError ex None
+            logAndReturnError ex
         | :? System.IO.FileLoadException as ex ->
-            let msg = Some "A file that was found could not be loaded."
-            logAndReturnError ex msg
+            logAndReturnError ex
         | :? BadImageFormatException as ex ->
-            logAndReturnError ex None
+            logAndReturnError ex
         | :? System.Security.SecurityException as ex ->
-            logAndReturnError ex None
+            logAndReturnError ex
         | :? System.IO.PathTooLongException as ex ->
-            logAndReturnError ex None
+            logAndReturnError ex
 
     let printProperties =
         Map.iter (fun key value -> printfn "%s: %s" key value)
