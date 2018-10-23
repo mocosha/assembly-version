@@ -1,4 +1,4 @@
-﻿namespace AssemblyVersion
+﻿namespace Aver
 
 module AssemblyProperties =
     let [<Literal>] FullName = "FullName"
@@ -64,17 +64,11 @@ module Args =
         { AssemblyPath = results.GetResult Path
           AssemblyProperties = details }
 
-open System
-open System.Reflection
-open System.Diagnostics
-
 module Program =
+    open System.Reflection
+    open System.Diagnostics
 
     let readAssemblyInfo (options: Args.Options) =
-        let logAndReturnError (ex: Exception) msg =
-            Debug.WriteLine (ex.ToString ())
-            Error (Option.defaultValue ex.Message msg)
-
         try
             let assembly = Assembly.LoadFrom (options.AssemblyPath)
             let versionInfo = FileVersionInfo.GetVersionInfo (assembly.Location)
@@ -91,17 +85,9 @@ module Program =
 
             Ok map
         with
-        | :? System.IO.FileNotFoundException as ex ->
-            logAndReturnError ex None
-        | :? System.IO.FileLoadException as ex ->
-            let msg = Some "A file that was found could not be loaded."
-            logAndReturnError ex msg
-        | :? BadImageFormatException as ex ->
-            logAndReturnError ex None
-        | :? System.Security.SecurityException as ex ->
-            logAndReturnError ex None
-        | :? System.IO.PathTooLongException as ex ->
-            logAndReturnError ex None
+        | ex ->
+            Debug.WriteLine (ex.ToString ())
+            Error ex.Message
 
     let printProperties =
         Map.iter (fun key value -> printfn "%s: %s" key value)
