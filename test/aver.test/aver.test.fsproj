@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>aver.test</AssemblyName>
@@ -18,12 +19,7 @@
     <Compile Include="Test.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9" />
-    <PackageReference Include="xunit" Version="2.4" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
-    <PackageReference Include="Unquote" Version="4.0" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="../../src/aver/aver.fsproj" />
   </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
