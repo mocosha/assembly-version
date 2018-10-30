@@ -7,19 +7,20 @@ module Test =
 
     module TestData =
 
-        let [<Literal>] ``aver.test.dll`` = "aver.test.dll"
+        // Using csharp assembly for testing becouse of this issue https://github.com/dotnet/cli/issues/10047
+        let [<Literal>] ``testassembly.dll`` = "testassembly.dll"
 
         let mkAverTestArgs args =
-            Array.append [|``aver.test.dll``|] args
+            Array.append [|``testassembly.dll``|] args
 
         let all =
             Map.empty
-                .Add(AssemblyProperties.FullName, "aver.test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")
+                .Add(AssemblyProperties.FullName, "testassembly, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null")
                 .Add(AssemblyProperties.TargetFramework, "v4.0.30319")
                 .Add(AssemblyProperties.CompanyName, "mocosha Inc.")
-                .Add(AssemblyProperties.AssemblyVersion, "1.0.0.0")
-                .Add(AssemblyProperties.ProductVersion, "1.0.0.0")
-                .Add(AssemblyProperties.FileVersion, "1.0.0.0")
+                .Add(AssemblyProperties.AssemblyVersion, "1.0.0.1")
+                .Add(AssemblyProperties.ProductVersion, "1.0.0.2")
+                .Add(AssemblyProperties.FileVersion, "1.0.0.3")
 
         let perParam =
             dict
