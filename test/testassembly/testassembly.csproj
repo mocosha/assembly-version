@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyTitle>Test</AssemblyTitle>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DebugType>portable</DebugType>
+    <Company>mocosha Inc.</Company>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.3</FileVersion>
+    <InformationalVersion>1.0.0.2</InformationalVersion>
+    <Product>aver</Product>
+    <Authors>mocosha Inc.</Authors>
+    <Copyright>mocosha Inc.</Copyright>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+</Project>
