@@ -7,7 +7,7 @@ module Test =
 
     module TestData =
 
-        // Using csharp assembly for testing becouse of this issue https://github.com/dotnet/cli/issues/10047
+        // Using csharp assembly for testing because of this issue https://github.com/dotnet/cli/issues/10047
         let [<Literal>] ``testassembly.dll`` = "testassembly.dll"
 
         let mkAverTestArgs args =
