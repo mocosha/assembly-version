@@ -11,7 +11,7 @@
     <Authors>mocosha Inc.</Authors>
     <Copyright>mocosha Inc.</Copyright>
     <PackageProjectUrl>https://github.com/mocosha/assembly-version</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/mocosha/assembly-version/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/mocosha/assembly-version/master/LICENSE.md</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/mocosha/assembly-version.git</RepositoryUrl>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>aver</ToolCommandName>
