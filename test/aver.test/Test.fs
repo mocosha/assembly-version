@@ -24,9 +24,9 @@ module Test =
 
         let perParam =
             dict
-                ["--a", (AssemblyProperties.AssemblyVersion, all.[AssemblyProperties.AssemblyVersion])
-                 "--p", (AssemblyProperties.ProductVersion,  all.[AssemblyProperties.ProductVersion])
-                 "--f", (AssemblyProperties.FileVersion,     all.[AssemblyProperties.FileVersion])]
+                ["-a", (AssemblyProperties.AssemblyVersion, all.[AssemblyProperties.AssemblyVersion])
+                 "-p", (AssemblyProperties.ProductVersion,  all.[AssemblyProperties.ProductVersion])
+                 "-f", (AssemblyProperties.FileVersion,     all.[AssemblyProperties.FileVersion])]
 
         let mkMap props =
             Seq.fold (fun (s: Map<_,_>) x -> s.Add x) Map.empty props
@@ -40,16 +40,16 @@ module Test =
     let ``no args should read AssemblyVersion only`` () =
         let options = Args.parse (TestData.mkAverTestArgs [||])
 
-        let expected = Ok (TestData.mkMap [TestData.perParam.["--a"]])
+        let expected = Ok (TestData.mkMap [TestData.perParam.["-a"]])
 
         let result = Program.readAssemblyInfo options
 
         result =! expected
 
     [<Theory>]
-    [<InlineData("--a")>]
-    [<InlineData("--p")>]
-    [<InlineData("--f")>]
+    [<InlineData("-a")>]
+    [<InlineData("-p")>]
+    [<InlineData("-f")>]
     let ``one arg should read 1 properties`` (arg1) =
         let args = [|arg1|]
         let options = Args.parse (TestData.mkAverTestArgs args)
@@ -64,9 +64,9 @@ module Test =
         result =! Ok expected
 
     [<Theory>]
-    [<InlineData("--a", "--p")>]
-    [<InlineData("--a", "--f")>]
-    [<InlineData("--p", "--f")>]
+    [<InlineData("-a", "-p")>]
+    [<InlineData("-a", "-f")>]
+    [<InlineData("-p", "-f")>]
     let ``two args should read 2 properties`` (arg1, arg2) =
         let args = [|arg1; arg2|]
         let options = Args.parse (TestData.mkAverTestArgs args)
@@ -81,7 +81,7 @@ module Test =
         result =! Ok expected
 
     [<Theory>]
-    [<InlineData("--a", "--p", "--f")>]
+    [<InlineData("-a", "-p", "-f")>]
     let ``three args should read 3 properties`` (arg1, arg2, arg3) =
         let args = [|arg1; arg2; arg3|]
         let options = Args.parse (TestData.mkAverTestArgs args)
@@ -106,7 +106,7 @@ module Test =
         result =! expected
 
     [<Theory>]
-    [<InlineData("--a", "--p", "--f", "--all")>]
+    [<InlineData("-a", "-p", "-f", "--all")>]
     let ``'--all' with other args should read whole info`` (arg1, arg2, arg3, arg4) =
         let options = Args.parse (TestData.mkAverTestArgs [|arg1; arg2; arg3; arg4|])
 
@@ -129,7 +129,7 @@ module Test =
 
     [<Theory>]
     [<InlineData("--asdadf")>]
-    [<InlineData("-a")>]
+    [<InlineData("--a")>]
     [<InlineData("ssdaa")>]
     let ``invalid argument should raise exception`` (arg1) =
         Assert.Throws<_> (fun _ ->
