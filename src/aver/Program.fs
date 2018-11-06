@@ -28,10 +28,10 @@ module Args =
     [<CliPrefix(CliPrefix.DoubleDash)>]
     type private CLIArguments =
         | [<MainCommand; Unique>] Path of string
-        | [<AltCommandLine("--a")>] Assembly
-        | [<AltCommandLine("--p")>] Product
-        | [<AltCommandLine("--f")>] File
-        | All
+        | [<AltCommandLine("-a")>] Assembly
+        | [<AltCommandLine("-p")>] Product
+        | [<AltCommandLine("-f")>] File
+        | [<AltCommandLine("-A")>] All
         with
             interface IArgParserTemplate with
                 member s.Usage =
