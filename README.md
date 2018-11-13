@@ -1,7 +1,7 @@
 aver
 ============
 
-`aver` is simple command line tool for reading assembly informations
+`aver` is simple command line tool for reading assembly information
 
 ### Instalation
 
