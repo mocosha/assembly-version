@@ -5,9 +5,7 @@ aver
 
 ### Instalation
 
-```bash
-dotnet tool install --global aver
-```
+    dotnet tool install --global aver
 
 ### How To Use
 
