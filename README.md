@@ -1,7 +1,7 @@
 aver
 ============
 
-`aver` is simple command line tool for reading assembly information
+`aver` is the command line tool for reading assembly information
 
 ### Instalation
 
@@ -23,3 +23,4 @@ aver
       --help            display this list of options.
 
 ### Why?
+There is no easy way to read assembly information without writing custom code.
