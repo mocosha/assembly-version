@@ -10,9 +10,11 @@ open Fake.Core.TargetOperators
 let [<Literal>] ProjectFilePath = "src/aver/aver.fsproj"
 let [<Literal>] TestProjectPath = "test/aver.test/aver.test.fsproj"
 let [<Literal>] ProjectDirPath = "src/aver/"
+let [<Literal>] TestProjectDirPath = "test/aver.test/"
 
 Target.create "Clean" (fun _ ->
-    Shell.deleteDirs  [ProjectDirPath + "/bin"; ProjectDirPath + "/obj"]
+    Shell.deleteDirs  [ ProjectDirPath + "/bin"; ProjectDirPath + "/obj";
+                        TestProjectDirPath + "/bin"; TestProjectDirPath + "/obj"]
 )
 
 Target.create "Restore" <| fun _ ->
@@ -20,7 +22,7 @@ Target.create "Restore" <| fun _ ->
         { defaults with
             NoCache = true }
 
-    DotNet.restore setParams ProjectFilePath
+    DotNet.restore setParams "aver.sln"
 
 Target.create "Build" <| fun _ ->
     let setParams (defaults: DotNet.BuildOptions) =

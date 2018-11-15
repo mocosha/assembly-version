@@ -6,4 +6,4 @@ if errorlevel 1 (
   exit /b %errorlevel%
 )
 
-fake-runner\fake.exe run build.fsx %*
+fake run build.fsx %*
