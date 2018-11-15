@@ -8,7 +8,7 @@ then
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  fake-runner\fake.exe run build.fsx $@
+  fake-runner/fake.exe run build.fsx $@
 else
   # use mono
 
@@ -17,5 +17,5 @@ else
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  mono fake-runner\fake.exe run build.fsx $@
+  mono fake-runner/fake.exe run build.fsx $@
 fi
