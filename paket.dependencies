@@ -2,8 +2,20 @@ source https://api.nuget.org/v3/index.json
 
 framework: netcoreapp2.1
 
+nuget FAKE 5.8.4
 nuget Argu
 nuget Microsoft.NET.Test.Sdk
 nuget xunit
 nuget xunit.runner.visualstudio
 nuget Unquote
+
+
+group FakeBuild
+    source https://api.nuget.org/v3/index.json
+
+    storage: none
+
+    nuget Fake.Core.Target
+    nuget Fake.IO.FileSystem
+    nuget Fake.DotNet.Cli
+    nuget Fake.DotNet.MSBuild

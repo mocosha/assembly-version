@@ -1,0 +1,4 @@
+language: fsharp
+solution: aver.sln
+script:
+  - ./build.sh
