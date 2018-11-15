@@ -1,5 +1,6 @@
 language: csharp
 solution: aver.sln
+dist: trusty
 sudo: required
 mono: latest
 dotnet: 2.1.403
