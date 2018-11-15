@@ -8,14 +8,13 @@ then
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  fake run build.fsx $@
+  fake-runner/fake.exe run build.fsx $@
 else
   # use mono
-
   mono .paket/paket.exe restore
   exit_code=$?
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  fake run build.fsx $@
+  mono fake-runner/fake.exe $@ --fsiargs -d:MONO build.fsx
 fi
