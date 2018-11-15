@@ -2,7 +2,7 @@ language: csharp
 solution: aver.sln
 sudo: required
 mono: latest
-dotnet: 2.1.0
+dotnet: 2.0.0
 install:
   - dotnet tool install fake-cli -g
 before_script:
