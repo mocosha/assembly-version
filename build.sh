@@ -8,7 +8,7 @@ then
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  fake-runner/fake run build.fsx $@
+  fake run build.fsx $@
 else
   # use mono
   mono .paket/paket.exe restore
@@ -16,6 +16,5 @@ else
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  #$HOME/.dotnet/tools/fake run build.fsx $@
-  fake run build.fsx $@
+  $HOME/.dotnet/tools/fake run build.fsx $@
 fi
