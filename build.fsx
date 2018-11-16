@@ -14,7 +14,7 @@ let [<Literal>] TestProjectDirPath = "test/aver.test/"
 let [<Literal>] SolutonFile = "aver.sln"
 let [<Literal>] OutputDir = "bin/Release"
 
-Target.create "Clean" |> fun _ ->
+Target.create "Clean" <| fun _ ->
     [ ProjectDirPath + "/bin"
       ProjectDirPath + "/obj"
       TestProjectDirPath + "/bin"
