@@ -16,5 +16,6 @@ else
   if [ $exit_code -ne 0 ]; then
   	exit $exit_code
   fi
-  $HOME/.dotnet/tools/fake run build.fsx $@
+  #$HOME/.dotnet/tools/fake run build.fsx $@
+  fake run build.fsx $@
 fi
