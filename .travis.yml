@@ -1,0 +1,13 @@
+language: csharp
+solution: aver.sln
+dist: trusty
+sudo: required
+mono: latest
+dotnet: 2.1.403
+install:
+  - dotnet tool install fake-cli -g
+before_script:
+  - chmod +x ./build.sh
+  - export PATH=$PATH:$HOME/.dotnet/tools/
+script:
+  - ./build.sh
