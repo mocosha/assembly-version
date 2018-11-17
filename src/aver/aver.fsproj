@@ -3,6 +3,7 @@
   <PropertyGroup>
     <AssemblyName>aver</AssemblyName>
     <AssemblyTitle>aver</AssemblyTitle>
+    <Description>Dotnet tool for reading assembly information</Description>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <DebugType>portable</DebugType>
     <OutputType>Exe</OutputType>
