@@ -1,5 +1,6 @@
-aver
-============
+# aver
+
+[![Build Status](https://travis-ci.org/mocosha/assembly-version.svg?branch=master)](https://travis-ci.org/mocosha/assembly-version)
 
 `aver` is the command line tool for reading assembly information
 
