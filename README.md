@@ -1,13 +1,27 @@
-# assembly-version
+# aver
 
-Command line tool for reading assembly version
+[![Build Status](https://travis-ci.org/mocosha/assembly-version.svg?branch=master)](https://travis-ci.org/mocosha/assembly-version)
 
-Try it localy
+`aver` is the command line tool for reading assembly information
 
-```bash
-dotnet pack
-```
+### Instalation
 
-```bash
-dotnet tool install --global --add-source ./nupkg aver
-```
+    dotnet tool install --global aver
+
+### How To Use
+
+    USAGE: aver.exe [--help] [--assembly] [--product] [--file] [--all] [<string>]
+    PATH:
+    
+      <string>          Path to the assembly (by default only assembly version is printed)
+      
+    OPTIONS:
+      
+      --assembly, -a    Print assembly version
+      --product, -p     Print product version
+      --file, -f        Print file version
+      --all, -a         Print whole assembly info
+      --help            display this list of options.
+
+### Why?
+There is no easy way to read assembly information without writing custom code.
