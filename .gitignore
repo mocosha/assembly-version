@@ -277,3 +277,4 @@ tempkey.rsa
 docker/services/
 
 /.vscode/database.json
+symbolCache.db
