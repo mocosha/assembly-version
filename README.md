@@ -20,6 +20,7 @@
       --assembly, -a    Print assembly version
       --product, -p     Print product version
       --file, -f        Print file version
+      --filename, -n    Print file name 
       --all, -a         Print whole assembly info
       --help            display this list of options.
 
