@@ -7,6 +7,7 @@ module AssemblyProperties =
     let [<Literal>] AssemblyVersion = "AssemblyVersion"
     let [<Literal>] ProductVersion = "ProductVersion"
     let [<Literal>] FileVersion = "FileVersion"
+    let [<Literal>] Filename = "Filename"
 
     let default' = [AssemblyVersion]
 
@@ -16,7 +17,8 @@ module AssemblyProperties =
          CompanyName
          AssemblyVersion
          ProductVersion
-         FileVersion]
+         FileVersion
+         Filename]
 
 module Args =
     open Argu
@@ -31,6 +33,7 @@ module Args =
         | [<AltCommandLine("-a")>] Assembly
         | [<AltCommandLine("-p")>] Product
         | [<AltCommandLine("-f")>] File
+        | [<AltCommandLine("-n")>] Filename
         | [<AltCommandLine("-A")>] All
         with
             interface IArgParserTemplate with
@@ -40,6 +43,7 @@ module Args =
                     | Assembly _ -> "Print assembly version"
                     | Product _ -> "Print product version"
                     | File _ -> "Print file version"
+                    | Filename _ -> "Print file name"
                     | All -> "Print whole assembly info"
 
     let parse cliargs =
@@ -56,6 +60,7 @@ module Args =
             getProps [AssemblyProperties.AssemblyVersion] (results.TryGetResult Assembly)
             @ getProps [AssemblyProperties.ProductVersion] (results.TryGetResult Product)
             @ getProps [AssemblyProperties.FileVersion] (results.TryGetResult File)
+            @ getProps [AssemblyProperties.Filename] (results.TryGetResult Filename)
             @ getProps AssemblyProperties.all (results.TryGetResult All)
             |> function
                 | [] -> AssemblyProperties.default'
@@ -81,6 +86,7 @@ module Program =
                     .Add(AssemblyProperties.AssemblyVersion, assembly.GetName().Version.ToString())
                     .Add(AssemblyProperties.ProductVersion, versionInfo.ProductVersion)
                     .Add(AssemblyProperties.FileVersion, versionInfo.FileVersion)
+                    .Add(AssemblyProperties.Filename, options.AssemblyPath)
                 |> Map.filter (fun k _ -> List.contains k options.AssemblyProperties)
 
             Ok map

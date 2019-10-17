@@ -21,12 +21,14 @@ module Test =
                 .Add(AssemblyProperties.AssemblyVersion, "1.0.0.1")
                 .Add(AssemblyProperties.ProductVersion, "1.0.0.2")
                 .Add(AssemblyProperties.FileVersion, "1.0.0.3")
+                .Add(AssemblyProperties.Filename, "testassembly.dll")
 
         let perParam =
             dict
                 ["-a", (AssemblyProperties.AssemblyVersion, all.[AssemblyProperties.AssemblyVersion])
                  "-p", (AssemblyProperties.ProductVersion,  all.[AssemblyProperties.ProductVersion])
-                 "-f", (AssemblyProperties.FileVersion,     all.[AssemblyProperties.FileVersion])]
+                 "-f", (AssemblyProperties.FileVersion,     all.[AssemblyProperties.FileVersion])
+                 "-n", (AssemblyProperties.Filename,        all.[AssemblyProperties.Filename])]
 
         let mkMap props =
             Seq.fold (fun (s: Map<_,_>) x -> s.Add x) Map.empty props
@@ -50,6 +52,7 @@ module Test =
     [<InlineData("-a")>]
     [<InlineData("-p")>]
     [<InlineData("-f")>]
+    [<InlineData("-n")>]
     let ``one arg should read 1 properties`` (arg1) =
         let args = [|arg1|]
         let options = Args.parse (TestData.mkAverTestArgs args)
@@ -67,6 +70,7 @@ module Test =
     [<InlineData("-a", "-p")>]
     [<InlineData("-a", "-f")>]
     [<InlineData("-p", "-f")>]
+    [<InlineData("-a", "-n")>]
     let ``two args should read 2 properties`` (arg1, arg2) =
         let args = [|arg1; arg2|]
         let options = Args.parse (TestData.mkAverTestArgs args)
