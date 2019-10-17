@@ -8,7 +8,7 @@
     <DebugType>portable</DebugType>
     <OutputType>Exe</OutputType>
     <Company>mocosha Inc.</Company>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>mocosha Inc.</Authors>
     <Copyright>mocosha Inc.</Copyright>
     <PackageProjectUrl>https://github.com/mocosha/assembly-version</PackageProjectUrl>
